@@ -7,6 +7,8 @@
 //
 
 import UIKit
+typealias WSCompletionBlock = (responseData :String!) ->()
+
 
 protocol CustomeTableViewCellDelegate{
     func didTapedSwitch(cell:CustomeTableViewCell)
@@ -18,6 +20,7 @@ class CustomeTableViewCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var switchView: UISwitch!
     var deleget : CustomeTableViewCellDelegate!
+    var completionBlock1: WSCompletionBlock?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +33,23 @@ class CustomeTableViewCell: UITableViewCell {
         switchView.setOn(cellinfo.switchOnorOff, animated:false)
     }
     
+    func showbuttonClick(cellinfo:CustomeTableViewCellModel, completionBlock:WSCompletionBlock)
+    {
+        imgView.image = cellinfo.image
+        lblName.text = cellinfo.name
+        switchView.setOn(cellinfo.switchOnorOff, animated:false)
+        completionBlock1 = completionBlock
+
+    }
+    
     @IBAction func switchAction(sender: AnyObject) {
-        deleget.didTapedSwitch(self)
+      
+        //deleget
+        
+        // deleget.didTapedSwitch(self)
+        
+        //completionHandler
+        completionBlock1!(responseData: "hi")
     }
 }
 

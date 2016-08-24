@@ -15,6 +15,8 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
        // Do any additional setup after loading the view.
     }
     
@@ -39,8 +41,19 @@ extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CustomeTableViewCell
-        cell.setUpTableViewCell(totalProfileArray[indexPath.row])
-        cell.deleget = self
+      
+        //With deleget 
+        
+        // cell.setUpTableViewCell(totalProfileArray[indexPath.row])
+        //cell.deleget = self
+        //or
+        
+        //With Block
+        cell.showbuttonClick(totalProfileArray[indexPath.row]) { (responseData) -> () in
+            
+            print("hi bro you have done this :)")
+        }
+        
         return cell
     }
     
