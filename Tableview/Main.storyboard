@@ -7,7 +7,7 @@
         <!--First View Controller-->
         <scene sceneID="DeX-LK-U4N">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="CBe-SJ-N2h" customClass="FirstViewController" customModule="UitablViewWithSwitch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="CBe-SJ-N2h" customClass="FirstViewController" customModule="UiTablViewWithSwitch_temp_caseinsensitive_rename" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="paF-fL-sDc"/>
                         <viewControllerLayoutGuide type="bottom" id="YsH-7H-jvd"/>
@@ -16,11 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-4F-HJc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-4F-HJc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="5My-U9-idk" customClass="CustomeTableViewCell" customModule="UitablViewWithSwitch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="5My-U9-idk" customClass="CustomeTableViewCell" customModule="UiTablViewWithSwitch_temp_caseinsensitive_rename" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5My-U9-idk" id="hx5-I6-wyw">
@@ -65,7 +67,7 @@
                                                 <constraint firstItem="gKD-Oe-ktd" firstAttribute="top" secondItem="hx5-I6-wyw" secondAttribute="top" id="lqZ-E0-qkF"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.35922357519999998" blue="0.55233928730000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="imgView" destination="XpN-5H-rMW" id="11b-jQ-y8V"/>
                                             <outlet property="lblName" destination="gKD-Oe-ktd" id="xpD-Ol-MU8"/>

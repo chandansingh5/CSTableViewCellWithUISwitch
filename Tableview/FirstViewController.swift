@@ -16,7 +16,6 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
        // Do any additional setup after loading the view.
     }
     
@@ -51,7 +50,10 @@ extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
         //With Block
         cell.showbuttonClick(totalProfileArray[indexPath.row]) { (responseData) -> () in
             
+            let item = self.totalProfileArray[(indexPath.row)]
+            item.switchOnorOff = cell.switchView.on
             print("hi bro you have done this :)")
+            
         }
         
         return cell
