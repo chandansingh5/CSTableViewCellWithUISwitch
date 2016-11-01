@@ -19,7 +19,7 @@ class FirstViewController: UIViewController {
        // Do any additional setup after loading the view.
     }
     
-    lazy var totalProfileArray:[CustomeTableViewCellModel] = {
+    var totalProfileArray:[CustomeTableViewCellModel] = {
         var profile = [] as [CustomeTableViewCellModel]
         for index in 0...31 {
             let item = CustomeTableViewCellModel()
@@ -34,12 +34,12 @@ class FirstViewController: UIViewController {
 
 extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
 
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CustomeTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomeTableViewCell
       
         //With deleget 
         
@@ -48,10 +48,10 @@ extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
         //or
         
         //With Block
-        cell.showbuttonClick(totalProfileArray[indexPath.row]) { (responseData) -> () in
+        cell.showbuttonClick(totalProfileArray[(indexPath as NSIndexPath).row]) { (responseData) -> () in
             
-            let item = self.totalProfileArray[(indexPath.row)]
-            item.switchOnorOff = cell.switchView.on
+            let item = self.totalProfileArray[((indexPath as NSIndexPath).row)]
+            item.switchOnorOff = cell.switchView.isOn
             print("hi bro you have done this :)")
             
         }
@@ -59,11 +59,11 @@ extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return totalProfileArray.count
     }
 
@@ -72,9 +72,9 @@ extension FirstViewController : UITableViewDataSource,UITableViewDelegate {
 extension FirstViewController : CustomeTableViewCellDelegate {
    
     func didTapedSwitch(cell: CustomeTableViewCell) {
-           let indexPath = tableView.indexPathForCell(cell)
-           let item = totalProfileArray[(indexPath?.row)!]
-            item.switchOnorOff = cell.switchView.on
+           let indexPath = tableView.indexPath(for: cell)
+           let item = totalProfileArray[((indexPath as NSIndexPath?)?.row)!]
+            item.switchOnorOff = cell.switchView.isOn
         
     }
 }

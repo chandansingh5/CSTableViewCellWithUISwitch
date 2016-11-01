@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias WSCompletionBlock = (responseData :String!) ->()
+typealias WSCompletionBlock = (_ responseData :String?) ->()
 
 
 protocol CustomeTableViewCellDelegate{
@@ -27,13 +27,13 @@ class CustomeTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setUpTableViewCell(cellinfo : CustomeTableViewCellModel){
+    func setUpTableViewCell(_ cellinfo : CustomeTableViewCellModel){
         imgView.image = cellinfo.image
         lblName.text = cellinfo.name
         switchView.setOn(cellinfo.switchOnorOff, animated:false)
     }
     
-    func showbuttonClick(cellinfo:CustomeTableViewCellModel, completionBlock:WSCompletionBlock)
+    func showbuttonClick(_ cellinfo:CustomeTableViewCellModel, completionBlock:@escaping WSCompletionBlock)
     {
         imgView.image = cellinfo.image
         lblName.text = cellinfo.name
@@ -42,14 +42,14 @@ class CustomeTableViewCell: UITableViewCell {
 
     }
     
-    @IBAction func switchAction(sender: AnyObject) {
+    @IBAction func switchAction(_ sender: AnyObject) {
       
         //deleget
         
         // deleget.didTapedSwitch(self)
         
         //completionHandler
-        completionBlock1!(responseData: "hi")
+        completionBlock1!("hi")
     }
 }
 
